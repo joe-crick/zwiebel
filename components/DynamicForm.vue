@@ -97,9 +97,9 @@
       </form>
       <div v-else>
         <div v-for="(value, key) in formConfig" :key="key">
-          <div>
-            <strong>{{ value.label }}:</strong>
-            <span>{{ formData[key] }}</span>
+          <div class="mb-5">
+            <div class="is-size-5 has-text-weight-bold">{{ value.label }}:</div>
+            <div>{{ formData[key] }}</div>
           </div>
         </div>
         <button @click="onEdit" class="button">Edit</button>
