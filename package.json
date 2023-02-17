@@ -19,6 +19,7 @@
     "sass": "^1.58.2"
   },
   "dependencies": {
+    "clone-deep": "^4.0.1",
     "ljsp-core": "^0.1.4",
     "to-case": "^2.0.0"
   }

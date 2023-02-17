@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item">
+      <nuxt-link to="/" class="navbar-item">
         <img src="~/assets/zwiebel-logo.png" class="zwiebel-logo" />
-      </a>
+      </nuxt-link>
 
       <a
         role="button"

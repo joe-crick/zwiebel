@@ -2,8 +2,9 @@
   <div>
     <DynamicForm
       v-model="formData"
-      :config="formConfig"
-      title="Problem Definition"
+      :form-config="fieldConfig"
+      title="Problem Definition" 
+      :form-data="myData"
     />
   </div>
 </template>
@@ -12,7 +13,16 @@
 export default {
   data() {
     return {
-      formConfig: {
+      myData: {
+        problem: 'John',
+        targetDate: '02.07.2023',
+        sponsor: 'john.doe@example.com',
+        startState: "25",
+        desiredState: '35',
+        boundaries: "Test",
+        impact: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+      fieldConfig: {
         problem: {
           label: "Problem Description",
           type: "textarea",
@@ -64,13 +74,14 @@ export default {
           required: true,
         },
       },
-      formData: {},
+      readOnly: true
     };
   },
   methods: {
-    submitForm() {
+    submitForm(data) {
       // Handle form submission here
-      console.log(this.formData);
+      console.log(data);
+      this.readonly = true;
     },
   },
 };
