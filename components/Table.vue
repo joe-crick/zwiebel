@@ -13,6 +13,7 @@
         :key="item.id"
         :item="item"
         :keys="keys"
+        :base-url="baseUrl"
       />
     </tbody>
   </table>
@@ -28,32 +29,26 @@ export default {
       type: Array,
       required: true,
     },
+    baseUrl: {
+      type: String,
+      required: true
+    }
   },
   setup(props) {
-    const keys = ref(empty$(props.items) ? [] : filter((key) => notEq(key, "id"),  Object.keys(first(props.items))))
+    const keys = ref(
+      empty$(props.items)
+        ? []
+        : filter((key) => notEq(key, "id"), Object.keys(first(props.items)))
+    );
 
-    // expose to template and other options API hooks
     return {
-      keys
-    }
+      keys,
+    };
   },
   computed: {
-    // keys() {
-    //   return empty$(this.items) ? [] : filter((key) => notEq(key, "id"),  Object.keys(first(this.items)));
-    // },
-    tableHeaders () {
-        if (empty$(this.items)) {
-        return [];
-      }
-      const itemKeys = this.keys;
-      const titleCase = (str) => {
-        return str
-          .replace(/([a-z])([A-Z])/g, '$1 $2')
-          .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
-          .replace(/^[a-z]/i, (char) => char.toUpperCase());
-      };
-      return itemKeys.map((key) => title(key));
-    }
+    tableHeaders() {
+      return this.keys.map((key) => title(key));
+    },
   },
 };
 </script>

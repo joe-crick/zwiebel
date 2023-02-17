@@ -1,5 +1,5 @@
 <template>
-  <Table :items="items" />
+  <Table :items="items" base-url="items" />
 </template>
 
 <script>
@@ -7,9 +7,9 @@ export default {
   data() {
     return {
       items: [
-        { id: 1, name: "John", age: 30, gender: "Male" },
-        { id: 2, name: "Jane", age: 25, gender: "Female" },
-        { id: 3, name: "Bob", age: 40, gender: "Male" },
+        { id: 1, project: "Delivery Schedule", owner: "Patty" },
+        { id: 2, project: "Fixes that Break", owner: "Ray" },
+        { id: 3, project: "Tragedy of the Commons", owner: "Sam" },
       ],
     };
   },
