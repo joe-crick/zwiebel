@@ -92,17 +92,25 @@
             ></textarea>
           </div>
         </div>
-        <button type="button" class="button is-primary mr-2" @click="saveForm">Save</button>
+        <button type="button" class="button is-primary mr-2" @click="saveForm">
+          Save
+        </button>
         <button @click="onEdit" class="button is-info">Cancel</button>
       </form>
       <div v-else>
+        <div class="columns">
+          <div class="column is-four-fifths"></div>
+          <div class="column">
+            <button @click="onEdit" class="button">Edit</button>
+          </div>
+        </div>
+
         <div v-for="(value, key) in formConfig" :key="key">
           <div class="mb-5">
             <div class="is-size-5 has-text-weight-bold">{{ value.label }}:</div>
             <div>{{ formData[key] }}</div>
           </div>
         </div>
-        <button @click="onEdit" class="button">Edit</button>
       </div>
     </div>
   </div>
@@ -126,6 +134,10 @@ export default {
       type: Function,
       required: true,
     },
+    title: {
+      type: String,
+      required: true
+    }
   },
   data() {
     return {
