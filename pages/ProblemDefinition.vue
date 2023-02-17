@@ -40,8 +40,8 @@ export default {
           type: "text",
           required: true,
         },
-        startState: {
-          label: "Start State",
+        beginningState: {
+          label: "Beginning State",
           type: "textarea",
           required: true,
         },
