@@ -16,16 +16,17 @@
             "
           >
             <input
+              v-model="formData[key]"
               class="input"
               :type="field.type"
               :name="key"
               :id="key"
               :required="field.required"
-              v-model="formData[key]"
             />
           </div>
           <div v-else-if="field.type === 'range'">
             <input
+              v-model.number="formData[key]"
               class="range"
               :type="field.type"
               :name="keyname"
@@ -33,7 +34,6 @@
               :min="field.min"
               :max="field.max"
               :step="field.step"
-              v-model.number="formData[key]"
             />
           </div>
           <div v-else-if="field.type === 'select'">
@@ -92,7 +92,7 @@
             ></textarea>
           </div>
         </div>
-        <button type="submit" class="button is-primary mr-2">Save</button>
+        <button type="button" class="button is-primary mr-2" @click="saveForm">Save</button>
         <button @click="onEdit" class="button is-info">Cancel</button>
       </form>
       <div v-else>
@@ -120,6 +120,10 @@ export default {
     },
     formData: {
       type: Object,
+      required: true,
+    },
+    onSubmit: {
+      type: Function,
       required: true,
     },
   },
@@ -175,7 +179,7 @@ export default {
     },
     saveForm() {
       if (this.validateForm()) {
-        this.$emit("save", cloneDeep(this.formState));
+        this.onSubmit(cloneDeep(this.formState));
       }
     },
     resetForm() {

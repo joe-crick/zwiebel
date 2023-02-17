@@ -3,8 +3,9 @@
     <DynamicForm
       v-model="formData"
       :form-config="fieldConfig"
-      title="Problem Definition" 
+      title="Problem Definition"
       :form-data="myData"
+      :on-submit="submitForm"
     />
   </div>
 </template>
@@ -14,13 +15,14 @@ export default {
   data() {
     return {
       myData: {
-        problem: 'John',
-        targetDate: '02.07.2023',
-        sponsor: 'john.doe@example.com',
+        problem: "John",
+        targetDate: "02.07.2023",
+        sponsor: "john.doe@example.com",
         startState: "25",
-        desiredState: '35',
+        desiredState: "35",
         boundaries: "Test",
-        impact: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        impact:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       fieldConfig: {
         problem: {
@@ -74,14 +76,13 @@ export default {
           required: true,
         },
       },
-      readOnly: true
+      readOnly: true,
     };
   },
   methods: {
     submitForm(data) {
       // Handle form submission here
       console.log(data);
-      this.readonly = true;
     },
   },
 };
