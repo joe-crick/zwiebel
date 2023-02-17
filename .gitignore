@@ -7,4 +7,4 @@ node_modules
 .env
 .history
 dist
-server
+server/node_modules
