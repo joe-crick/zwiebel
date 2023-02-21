@@ -1,4 +1,5 @@
 <template>
+  <NavButton to="/ProblemDefinition" text="Problem Definition" class="button is-info mb-3"/>
   <Table :items="items" base-url="items" />
 </template>
 
